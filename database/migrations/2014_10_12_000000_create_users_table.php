@@ -25,7 +25,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 20);
             $table->string('kana', 40);
-            $table->string('email', 100)->unique();
+            $table->string('email', 100)->charset("utf8")->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
