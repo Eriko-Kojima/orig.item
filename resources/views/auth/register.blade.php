@@ -29,7 +29,7 @@
                             <label for="kana" class="col-md-4 col-form-label text-md-end">{{ __('Kana') }}</label>
 
                             <div class="col-md-6">
-                                <input id="kana" type="text" placeholder="フリガナ" pattern="[ァ-ヴー\s　]+" class="form-control @error('kana') is-invalid @enderror" name="kana" value="{{ old('kana') }}" required autocomplete="kana" autofocus>
+                                <input id="kana" type="text" placeholder="フリガナ（全角カタカナ）" pattern="[ァ-ヴー\s　]+" class="form-control @error('kana') is-invalid @enderror" name="kana" value="{{ old('kana') }}" required autocomplete="kana" autofocus>
                                 @error('kana')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -56,7 +56,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" placeholder="abcd1234"  class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input id="password" type="password" placeholder="半角英数8文字以上"  class="form-control @error('password') is-invalid @enderror" name="password" min="8" required autocomplete="new-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -70,7 +70,7 @@
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" placeholder="abcd1234" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input id="password-confirm" type="password" placeholder="半角英数8文字以上" class="form-control" name="password_confirmation" min="8" required autocomplete="new-password">
                             </div>
                         </div>
 
@@ -78,7 +78,7 @@
                             <label for="phone" class="col-md-4 col-form-label text-md-end">{{ __('Phone') }}</label>
 
                             <div class="col-md-6">
-                                <input id="phone" type="tel" placeholder="090-1234-5678" pattern="\d{2,4}-?\d{3,4}-?\d{3,4}" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
+                                <input id="phone" type="tel" placeholder="09012345678" pattern="\d{2,4}-?\d{3,4}-?\d{3,4}" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
 
                                 @error('phone')
                                     <span class="invalid-feedback" role="alert">
