@@ -25,7 +25,7 @@
             <div id="reservedatetime">
                 <tr class="form-control border-bottom-0">
                     <th><label for="date">日付指定（必須）</label><br><span>※本日から１年後の末日まで予約可能です。過去を選択しないようにお気を付けください。</span></th>
-                    <td><input type="date" id="date" name="date" value="" min="" max="" required></td>
+                    <td><input type="date" id="date" name="date" value="" min="" max="" min="Date.current" required></td>
                 </tr>
                 <tr class="form-control border-bottom-0">
                     <th class="pt-0"></th>
@@ -43,7 +43,7 @@
             <tr class="form-control border-bottom-0">
                 <th><label for="detail">メッセージ</label><br><span>※ご要望や留意する点がありましたらお気軽にご記入ください</span>
                 </th>
-                <td><textarea id="detail" class="detail_textarea" name="message" cols="45" rows="8" value=""></textarea>
+                <td><textarea type="text" id="detail" class="detail_textarea" name="detail" cols="45" rows="8" value=""></textarea>
                 </td>
             </tr>
             <tr class="form-control border-bottom-0">
