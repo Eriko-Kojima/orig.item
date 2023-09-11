@@ -64,7 +64,7 @@ class ItemController extends Controller
         $id = $item->id;
         $menu = $request->menu == 0 ? 'ラッシュリフト 90分 7,700円' : ($request->menu == 1 ? 'ラッシュリフト上下 90分 9,900円' : ($request->menu == 2 ? 'まつ毛エクステ120本 90分 5,500円' : 'ハリウッドブロウリフト 90分 5,500円'));
         $reservedatetime = $item->reservedatetime;
-        $detail = $request->detail;
+        $detail = $item->detail;
         Mail::send(new SampleMail($name, $email, $id, $menu, $reservedatetime, $detail));
 
         return redirect('/items/complete?id='.$item->id);
