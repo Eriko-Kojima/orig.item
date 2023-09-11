@@ -25,7 +25,7 @@
             <div id="reservedatetime">
                 <tr class="form-control border-bottom-0">
                     <th><label for="date">日付指定（必須）</label><br><span>※本日から１年後の末日まで予約可能です。過去を選択しないようにお気を付けください。</span></th>
-                    <td><input type="date" id="date" name="date" value="" min="" max="" min="Date.current" required></td>
+                    <td><input type="date" id="date" name="date" value="" min="" max="" required></td>
                 </tr>
                 <tr class="form-control border-bottom-0">
                     <th class="pt-0"></th>
