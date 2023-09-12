@@ -301,8 +301,8 @@ return [
             'icon' => '',
         ],
         [
-            'text' => '顧客検索',
-            'url'  => '/admin/search',
+            'text' => '顧客一覧',
+            'url'  => '/admin/member/index',
             'icon' => '',
         ],
 

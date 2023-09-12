@@ -19,42 +19,41 @@
                 </div>
             @endif
 
-    {{-- 編集画面 --}}
     <div class="card">
-        <form action="{{ route('admin.update', $item->id) }}" method="post">
-            @csrf
+        <form method="post" action="/admin/update/{{ $item->id }}">
+        @csrf
             <div class="card-body">
-                {{-- 会員番号入力 --}}
                 <div class="form-group">
                     <label for="user_id">会員番号</label>
-                    <input type="text" class="form-control" id="user_id" name="user_id"
-                        value="{{ old('user_id', $item->user_id) }}" placeholder="会員番号" />
+                    <input type="number" class="form-control" id="user_id" name="user_id" min="1" max="1000" value="{{ old('user_id', $item->user_id) }}" />
                 </div>
-                {{-- メニュー選択 --}}
                 <div class="form-group">
                     <label for="menu">メニュー</label>
-                    <input type="text" class="form-control" id="menu" name="menu"
-                        value="{{ old('menu', $item->menu) }}" placeholder="メニュー" />
+                    <input type="radio" class="form-control" name="menu" id="menuA" value="0" {{ old('menu') == 0 ? "checked" : null }} />ラッシュリフト 90分 7,700円
+                    <input type="radio" class="form-control" name="menu" id="menuB" value="1" {{ old('menu') == 1 ? "checked" : null }} />ラッシュリフト上下 90分 9,900円
+                    <input type="radio" class="form-control" name="menu" id="menuC" value="2" {{ old('menu') == 2 ? "checked" : null }} />まつ毛エクステ120本 90分 5,500円
+                    <input type="radio" class="form-control" name="menu" id="menuD" value="3" {{ old('menu') == 3 ? "checked" : null }} />ハリウッドブロウリフト 90分 5,500円
                 </div>
-                {{-- 日付選択 --}}
                 <div class="form-group">
-                    <label for="reservedatetime">日付</label>
-                    <input type="text" class="form-control" id="reservedatetime" name="reservedatetime"
-                        value="{{ old('reservedatetime', $item->reservedatetime) }}" placeholder="日付" />
+                    <label for="reservedatetime">予約日時</label><br>
+                    <li><label for="date">予約日（必須）</label><br>
+                        <span>※本日から１年後の末日まで予約可能です。過去を選択しないようにお気を付けください。</span>
+                        <input type="date" class="form-control" id="date" name="date" value="{{ old('date', $item->date) }}" min="" max="" pattern=”[0-9]{4}-[0-9]{2}-[0-9]{2}” />
+                    </li><br>
+                    <li><label for="time">予約時間（必須）</label><br>
+                        <span>※予約可能時間(11:00、12:30、14:00、15:30、17:00、18:30)</span>
+                        <input type="time" class="form-control" id="time" name="time" value="{{ old('time', $item->time) }}" min="11:00" max="18:30" />
+                    </li>
                 </div>
-                {{-- メッセージ入力 --}}
                 <div class="form-group">
                     <label for="detail">メッセージ</label>
                     <input type="text" class="form-control" id="detail" name="detail"
-                        value="{{ old('detail', $item->detail) }}" placeholder="メッセージ" />
+                        value="{{ old('detail', $item->detail) }}" />
                 </div>
             </div>
             <div class="card-footer">
-                <div class="row">
-                    <a class="btn btn-default" href="{{ route('admin.index') }}" role="button">戻る</a>
-                    <div class="ml-auto">
-                        <button type="submit" class="btn btn-primary">編集</button>
-                    </div>
+                <div class="ml-auto">
+                    <button type="submit" class="btn btn-dark">編集</button>
                 </div>
             </div>
         </form>

@@ -29,7 +29,6 @@ class ItemController extends Controller
             $items = Item::where('user_id', $user->id)->get();
         }
         
-
         return view('items.home',compact('user', 'items'));        
     }
 
@@ -95,7 +94,7 @@ class ItemController extends Controller
     {
         // 予約一覧取得
         $items = Item::paginate(5);
-
+        
         return view('admin.index', ['items' => $items]);
     }  
 
@@ -142,13 +141,23 @@ class ItemController extends Controller
     /**
      * 更新
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $item = item::find($id);
-        $item->fill($request->all())->save();
+        $this->validate($request, [
+            'user_id' => 'required',
+            'menu' => 'required',
+            'date' => 'required',
+            'time' => 'required',
+        ]);
 
-        // 一覧へ戻り完了メッセージを表示
-        return redirect('admin.index')->with('message', '編集しました');
+        Item::where("id",$request->id)->update([
+            "user_id" => $request->user_id,
+            "menu" => $request->menu,
+            'reservedatetime' => $request->date .' '.$request->time,
+            "detail" => $request->detail,
+        ]);
+
+        return redirect('/admin/index');
     }
 
     /**
@@ -156,9 +165,10 @@ class ItemController extends Controller
      */
     public function delete($id)
     {
-        Item::where('id', $id)->delete();
+        $item = Item::find($id); 
+        $item->delete();
 
         // 完了メッセージを表示
-        return redirect('admin.index')->with('message', '削除しました');
+        return redirect('/admin/index');
     }
 }

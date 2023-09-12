@@ -40,10 +40,14 @@
                                     <td>{{ $item->reservedatetime }}</td>
                                     <td>{{ $item->detail }}</td>
                                     <td class="table-text">
-                                    <a class="btn btn-primary btn-sm" href="/admin/edit/{{ $item->id }}">編集</a>
+                                        <a class="btn btn-primary btn-sm" href="/admin/edit/{{ $item->id }}">編集</a>
                                     </td>
+
                                     <td class="table-text">
-                                    <a class="btn btn-danger btn-sm" href="/admin/index">削除</a>
+                                        <form action="/admin/delete/{{ $item->id }}" method="POST">
+                                        @csrf
+                                        <input type="submit" class="btn btn-danger btn-sm" value="削除" onclick='return confirm("この内容を削除してもよろしいでしょうか？")' />
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

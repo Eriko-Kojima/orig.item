@@ -13,10 +13,10 @@
         <table class="form-group m-auto">
             <tr class="form-control border-bottom-0">
                 <th>メニュー選択（必須）</th>
-                <td class="w-auto"><label for="menuA" ><input type="radio" name="menu" id="menuA" value="0" {{ old('menu') == 0 ? "checked" : null }}>ラッシュリフト 90分 7,700円</input></label></td>
-                <td class="w-auto"><br><label for="menuB" ><input type="radio" name="menu" id="menuB" value="1" {{ old('menu') == 1 ? "checked" : null }}>ラッシュリフト上下 90分 9,900円</input></label></td>
-                <td class="w-auto"><label for="menuC" ><input type="radio" name="menu" id="menuC" value="2" {{ old('menu') == 2 ? "checked" : null }}>まつ毛エクステ120本 90分 5,500円</input></label></td>
-                <td class="w-auto"><br><label for="menuD" ><input type="radio" name="menu" id="menuD" value="3" {{ old('menu') == 3 ? "checked" : null }}>ハリウッドブロウリフト 90分 5,500円</input></label></td>
+                <td class="w-auto"><label for="menuA" ><input type="radio" name="menu" id="menuA" value="0" {{ old('menu') == 0 ? "checked" : null }} />ラッシュリフト 90分 7,700円</label></td>
+                <td class="w-auto"><br><label for="menuB" ><input type="radio" name="menu" id="menuB" value="1" {{ old('menu') == 1 ? "checked" : null }} />ラッシュリフト上下 90分 9,900円</label></td>
+                <td class="w-auto"><label for="menuC" ><input type="radio" name="menu" id="menuC" value="2" {{ old('menu') == 2 ? "checked" : null }} />まつ毛エクステ120本 90分 5,500円</label></td>
+                <td class="w-auto"><br><label for="menuD" ><input type="radio" name="menu" id="menuD" value="3" {{ old('menu') == 3 ? "checked" : null }} />ハリウッドブロウリフト 90分 5,500円</label></td>
             </tr> 
             <tr class="form-control border-top-0 border-bottom-0 pt-0">
                 <th class="pt-0"></th>
@@ -25,7 +25,7 @@
             <div id="reservedatetime">
                 <tr class="form-control border-bottom-0">
                     <th><label for="date">日付指定（必須）</label><br><span>※本日から１年後の末日まで予約可能です。過去を選択しないようにお気を付けください。</span></th>
-                    <td><input type="date" id="date" name="date" value="" min="" max="" required></td>
+                    <td><input type="date" id="date" name="date" value="" min="" max="" required /></td>
                 </tr>
                 <tr class="form-control border-bottom-0">
                     <th class="pt-0"></th>
@@ -33,7 +33,7 @@
                 </tr>
                 <tr class="form-control border-bottom-0">
                     <th><label for="time">予約時間（必須）</label><br><span>※予約可能時間(11:00、12:30、14:00、15:30、17:00、18:30)</span></th>
-                    <td><input type="time" id="time" name="time" value="11:00" min="11:00" max="18:30" required></td>
+                    <td><input type="time" id="time" name="time" value="11:00" min="11:00" max="18:30" required /></td>
                 </tr>
                 <tr class="form-control border-bottom-0">
                     <th class="pt-0"></th>
