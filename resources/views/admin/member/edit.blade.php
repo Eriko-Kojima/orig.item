@@ -41,11 +41,11 @@
                 </div>
                 <div class="form-group">
                     <label for="phone">電話番号</label>
-                    <input type="phone" class="form-control" id="phone" name="phone" value="{{ old('phone', $user->phone) }}" />
+                    <input type="tel" class="form-control" id="phone" name="phone" value="{{ old('phone', $user->phone) }}" />
                 </div>
                 <div class="form-group">
                     <label for="birthdate">生年月日（任意）</label>
-                    <input type="date" class="form-control" id="birthdate" name="birthdate" value="{{ old('birthdate', $user->birthdate) }}" />
+                    <input type="date" class="form-control" id="birthdate" name="birthdate" value="{{ old('birthdate', $user->birthdate) }}" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" />
                 </div>
                 <div class="form-group">
                     <label for="role">管理者</label>

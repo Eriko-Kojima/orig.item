@@ -75,12 +75,12 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="tel" class="col-md-4 col-form-label text-md-end">{{ __('電話番号') }}</label>
+                            <label for="phone" class="col-md-4 col-form-label text-md-end">{{ __('電話番号') }}</label>
 
                             <div class="col-md-6">
-                                <input id="tel" type="tel" placeholder="09012345678" pattern="\d{2,4}-?\d{3,4}-?\d{3,4}" class="form-control @error('tel') is-invalid @enderror" name="tel" value="{{ old('tel') }}" required autocomplete="tel" autofocus>
+                                <input id="phone" type="tel" placeholder="09012345678" pattern="\d{2,4}-?\d{3,4}-?\d{3,4}" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
 
-                                @error('tel')
+                                @error('phone')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -92,7 +92,7 @@
                             <label for="birthdate" class="col-md-4 col-form-label text-md-end">{{ __('生年月日（任意）') }}</label>
 
                             <div class="col-md-6">
-                                <input id="birthdate" type="date" class="form-control @error('birthdate') is-invalid @enderror" name="date" value="{{ old('birthdate') }}" autocomplete="birthdate" autofocus>
+                                <input id="birthdate" type="date" class="form-control @error('birthdate') is-invalid @enderror" name="birthdate" value="{{ old('birthdate') }}" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" autocomplete="birthdate" autofocus>
 
                                 @error('birthdate')
                                     <span class="invalid-feedback" role="alert">

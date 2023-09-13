@@ -10,7 +10,7 @@
 <div id="pic-top">
     <img src="{{ asset('img/salon_screen_cut.jpg') }}" alt="">    
 </div>
-<h5>・・・・・・・・くつろげる上質空間・・・・・・・・</h5>
+<h5>-----------------------くつろげる上質空間-----------------------</h5>
 <div class="d-grid gap-2 col-8 mx-auto mb-1">
     <a href="/items/create" type="button" class="btn btn-light btn-outline-dark">予約する</a>
 </div>

@@ -54,7 +54,7 @@ class RegisterController extends Controller
             'kana' => ['required', 'string', 'max:40'],
             'email' => ['required', 'string', 'email', 'max:100', 'unique:users'],
             'phone' => ['required', 'string', 'max:11'],
-            'birthdate' => ['date'],
+            'birthdate' => ['date', 'date_format:Y-m-d'],
         ]);
     }
 

@@ -37,12 +37,19 @@
                 <div class="form-group">
                     <label for="reservedatetime">予約日時</label><br>
                     <li><label for="date">予約日（必須）</label><br>
-                        <span>※本日から１年後の末日まで予約可能です。過去を選択しないようにお気を付けください。</span>
-                        <input type="date" class="form-control" id="date" name="date" value="{{ old('date', $item->date) }}" min="" max="" pattern=”[0-9]{4}-[0-9]{2}-[0-9]{2}” />
+                        <span>※本日から１年後まで予約可能です</span>
+                        <input type="date" class="form-control" id="date" name="date" value="{{ old('date', $item->date) }}" min="{{ now()->format('Y-m-d')}}" max="{{ now()->addYear(1)->format('Y-m-d') }}" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" />
                     </li><br>
-                    <li><label for="time">予約時間（必須）</label><br>
-                        <span>※予約可能時間(11:00、12:30、14:00、15:30、17:00、18:30)</span>
-                        <input type="time" class="form-control" id="time" name="time" value="{{ old('time', $item->time) }}" min="11:00" max="18:30" />
+                    <li><label for="time">予約時間（必須）</label><br><span>※予約可能時間(11:00、12:30、14:00、15:30、17:00、18:30)</span></th>
+                        <select name="time" id="time" class="form-control">
+                            <option value="">予約時間をお選びください</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:30">12:30</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:30">15:30</option>
+                            <option value="17:00">17:00</option>
+                            <option value="18:30">18:30</option>
+                        </select>
                     </li>
                 </div>
                 <div class="form-group">

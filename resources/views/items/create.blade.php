@@ -24,8 +24,8 @@
             </tr>
             <div id="reservedatetime">
                 <tr class="form-control border-bottom-0">
-                    <th><label for="date">日付指定（必須）</label><br><span>※本日から１年後の末日まで予約可能です。過去を選択しないようにお気を付けください。</span></th>
-                    <td><input type="date" id="date" name="date" value="" min="" max="" required /></td>
+                    <th><label for="date">予約日（必須）</label><br><span>※本日から１年後まで予約可能です</span></th>
+                    <td><input type="date" class="form-control" id="date" name="date" value="" min="{{ now()->format('Y-m-d')}}" max="{{ now()->addYear(1)->format('Y-m-d') }}" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" required /></td>
                 </tr>
                 <tr class="form-control border-bottom-0">
                     <th class="pt-0"></th>
@@ -33,7 +33,17 @@
                 </tr>
                 <tr class="form-control border-bottom-0">
                     <th><label for="time">予約時間（必須）</label><br><span>※予約可能時間(11:00、12:30、14:00、15:30、17:00、18:30)</span></th>
-                    <td><input type="time" id="time" name="time" value="11:00" min="11:00" max="18:30" required /></td>
+                    <td>
+                        <select name="time" class="form-control" id="time">
+                            <option value="">予約時間をお選びください</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:30">12:30</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:30">15:30</option>
+                            <option value="17:00">17:00</option>
+                            <option value="18:30">18:30</option>
+                        </select>
+                    </td>
                 </tr>
                 <tr class="form-control border-bottom-0">
                     <th class="pt-0"></th>

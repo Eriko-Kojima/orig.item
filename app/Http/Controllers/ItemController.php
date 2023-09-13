@@ -43,7 +43,6 @@ class ItemController extends Controller
 
     public function store(Request $request)
     {
-
         // バリデーション
         $this->validate($request, [
             'menu' => 'required',
@@ -133,6 +132,16 @@ class ItemController extends Controller
     {
         $item = Item::find($id);
 
+        //reservedatetimeを年月日と時間に分解
+        //分解したものをそれぞれ$date,$timeにセットする
+        $tmp = explode(' ', $item->reservedatetime);
+        $item->date = $tmp[0];
+        $item->time = $tmp[1];
+
+        //実現のために必要なこと⇒関数を利用する
+        //①検索の関数 ⇒ スペースを見つけ出して、それを基準に切り取る
+        //②文字を切り取る関数⇒文字を日付部分と時間部分に分ける
+        
         return view('admin.edit', [
             'item' => $item
         ]);
@@ -146,15 +155,15 @@ class ItemController extends Controller
         $this->validate($request, [
             'user_id' => 'required',
             'menu' => 'required',
-            'date' => 'required',
+            'date' => 'required|date|date_format:Y-m-d',
             'time' => 'required',
         ]);
 
-        Item::where("id",$request->id)->update([
-            "user_id" => $request->user_id,
-            "menu" => $request->menu,
+        Item::where('id',$request->id)->update([
+            'user_id' => $request->user_id,
+            'menu' => $request->menu,
             'reservedatetime' => $request->date .' '.$request->time,
-            "detail" => $request->detail,
+            'detail' => $request->detail,
         ]);
 
         return redirect('/admin/index');
