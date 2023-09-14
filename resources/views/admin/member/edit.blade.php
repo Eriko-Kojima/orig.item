@@ -41,7 +41,7 @@
                 </div>
                 <div class="form-group">
                     <label for="phone">電話番号</label>
-                    <input type="tel" class="form-control" id="phone" name="phone" value="{{ old('phone', $user->phone) }}" />
+                    <input type="text" class="form-control" id="phone" name="phone" value="{{ old('phone', $user->phone) }}" />
                 </div>
                 <div class="form-group">
                     <label for="birthdate">生年月日（任意）</label>

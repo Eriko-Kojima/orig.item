@@ -78,7 +78,7 @@
                             <label for="phone" class="col-md-4 col-form-label text-md-end">{{ __('電話番号') }}</label>
 
                             <div class="col-md-6">
-                                <input id="phone" type="tel" placeholder="09012345678" pattern="\d{2,4}-?\d{3,4}-?\d{3,4}" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
+                                <input id="phone" type="text" placeholder="09012345678" pattern="\d{2,4}-?\d{3,4}-?\d{3,4}" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
 
                                 @error('phone')
                                     <span class="invalid-feedback" role="alert">
