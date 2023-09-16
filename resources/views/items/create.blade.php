@@ -6,6 +6,7 @@
 </div>
 <div class="items-title">
     <h2 class="text-center">予約する</h2>
+    <p class="form-control">※会員様にログインしていただいてから予約可能になります</p>
 </div>
 <div id="create-form" class="form-container">
     <form method="post" action="/items/store" onsubmit="return confirm('この内容で予約の確定をしてもよろしいでしょうか？');"> 
@@ -53,7 +54,7 @@
             <tr class="form-control border-bottom-0">
                 <th><label for="detail">メッセージ</label><br><span>※ご要望や留意する点がありましたらお気軽にご記入ください</span>
                 </th>
-                <td><textarea type="text" id="detail" class="detail_textarea" name="detail" cols="45" rows="8" value=""></textarea>
+                <td><textarea type="text" id="detail" class="detail_textarea" name="detail" max="500" cols="45" rows="8" value=""></textarea>
                 </td>
             </tr>
             <tr class="form-control border-bottom-0">

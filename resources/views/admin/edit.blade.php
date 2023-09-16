@@ -28,11 +28,11 @@
                     <input type="number" class="form-control" id="user_id" name="user_id" min="1" max="1000" value="{{ old('user_id', $item->user_id) }}" />
                 </div>
                 <div class="form-group">
-                    <label for="menu">メニュー</label>
-                    <input type="radio" class="form-control" name="menu" id="menuA" value="0" {{ old('menu') == 0 ? "checked" : null }} />ラッシュリフト 90分 7,700円
-                    <input type="radio" class="form-control" name="menu" id="menuB" value="1" {{ old('menu') == 1 ? "checked" : null }} />ラッシュリフト上下 90分 9,900円
-                    <input type="radio" class="form-control" name="menu" id="menuC" value="2" {{ old('menu') == 2 ? "checked" : null }} />まつ毛エクステ120本 90分 5,500円
-                    <input type="radio" class="form-control" name="menu" id="menuD" value="3" {{ old('menu') == 3 ? "checked" : null }} />ハリウッドブロウリフト 90分 5,500円
+                    <label for="menu">メニュー（必須）</label><br>
+                    <input type="radio" name="menu" id="menuA" value="0" {{ old('menu') == 0 ? "checked" : null }} />ラッシュリフト 90分 7,700円<br>
+                    <input type="radio" name="menu" id="menuB" value="1" {{ old('menu') == 1 ? "checked" : null }} />ラッシュリフト上下 90分 9,900円<br>
+                    <input type="radio" name="menu" id="menuC" value="2" {{ old('menu') == 2 ? "checked" : null }} />まつ毛エクステ120本 90分 5,500円<br>
+                    <input type="radio" name="menu" id="menuD" value="3" {{ old('menu') == 3 ? "checked" : null }} />ハリウッドブロウリフト 90分 5,500円
                 </div>
                 <div class="form-group">
                     <label for="reservedatetime">予約日時</label><br>
@@ -60,7 +60,7 @@
             </div>
             <div class="card-footer">
                 <div class="ml-auto">
-                    <button type="submit" class="btn btn-dark">編集</button>
+                    <button type="submit" class="btn btn-primary">編集</button>
                 </div>
             </div>
         </form>

@@ -46,8 +46,9 @@ class ItemController extends Controller
         // バリデーション
         $this->validate($request, [
             'menu' => 'required',
-            'date' => 'required',
+            'date' => 'required|date|date_format:Y-m-d',
             'time' => 'required',
+            'detail' => 'max:500',
         ]);
 
         // 予約登録
@@ -107,8 +108,9 @@ class ItemController extends Controller
             // バリデーション
             $this->validate($request, [
                 'menu' => 'required',
-                'date' => 'required',
+                'date' => 'required|date|date_format:Y-m-d',
                 'time' => 'required',
+                'detail' => 'max:500',
             ]);
 
             // 予約登録

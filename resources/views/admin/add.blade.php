@@ -29,7 +29,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="menu">メニュー</label><br>
+                            <label for="menu">メニュー（必須）</label><br>
                             <input type="radio" name="menu" id="menuA" value="0" {{ old('menu') == 0 ? "checked" : null }} />ラッシュリフト 90分 7,700円<br>
                             <input type="radio" name="menu" id="menuB" value="1" {{ old('menu') == 1 ? "checked" : null }} />ラッシュリフト上下 90分 9,900円<br>
                             <input type="radio" name="menu" id="menuC" value="2" {{ old('menu') == 2 ? "checked" : null }} />まつ毛エクステ120本 90分 5,500円<br>
@@ -57,7 +57,7 @@
 
                         <div class="form-group">
                             <label for="detail">メッセージ</label>
-                            <input type="text" class="form-control" id="detail" name="detail" placeholder="メッセージ" />
+                            <input type="text" class="form-control" id="detail" name="detail" max="500" placeholder="メッセージ" />
                         </div>
                     </div>
 

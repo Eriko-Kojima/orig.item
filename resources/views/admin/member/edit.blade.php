@@ -24,10 +24,6 @@
         @csrf
             <div class="card-body">
                 <div class="form-group">
-                    <label for="id">会員番号</label>
-                    <input type="number" class="form-control" id="id" name="id" min="1" max="1000" value="{{ old('id', $user->id) }}" />
-                </div>
-                <div class="form-group">
                     <label for="name">名前</label>
                     <input type="text" class="form-control" id="name" name="name" value="{{ old('name', $user->name) }}" />
                 </div>
@@ -48,14 +44,14 @@
                     <input type="date" class="form-control" id="birthdate" name="birthdate" value="{{ old('birthdate', $user->birthdate) }}" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" />
                 </div>
                 <div class="form-group">
-                    <label for="role">管理者</label>
-                    <input type="radio" class="form-control" name="role" id="role" value="0" {{ $user->role == 0 ? "checked" : null }} />一般ユーザー
-                    <input type="radio" class="form-control" name="role" id="role" value="1" {{ $user->role == 1 ? "checked" : null }} />管理者
+                    <label for="role">管理者</label><br>
+                    <input type="radio" name="role" id="role" value="0" {{ $user->role == 0 ? "checked" : null }} />一般ユーザー<br>
+                    <input type="radio" name="role" id="role" value="1" {{ $user->role == 1 ? "checked" : null }} />管理者
                 </div>
             </div>
             <div class="card-footer">
                 <div class="ml-auto">
-                    <button type="submit" class="btn btn-dark">編集</button>
+                    <button type="submit" class="btn btn-primary">編集</button>
                 </div>
             </div>
         </form>
