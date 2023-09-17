@@ -107,6 +107,7 @@ class ItemController extends Controller
         if ($request->isMethod('post')) {
             // バリデーション
             $this->validate($request, [
+                'user_id' => 'required',
                 'menu' => 'required',
                 'date' => 'required|date|date_format:Y-m-d',
                 'time' => 'required',
