@@ -65,7 +65,7 @@ class UserController extends Controller
         $this->validate($request, [
             'name' => 'required|string|max:20',
             'kana' => 'required|string|max:40',
-            'phone' => 'required|string|max:11',
+            'phone' => 'required|string|max:11|regex:/^[0-9]+$/',
             'birthdate' => 'date',
             'email' => [
                 'required',

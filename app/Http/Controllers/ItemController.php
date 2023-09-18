@@ -180,7 +180,6 @@ class ItemController extends Controller
         $item = Item::find($id); 
         $item->delete();
 
-        // 完了メッセージを表示
         return redirect('/admin/index');
     }
 }
