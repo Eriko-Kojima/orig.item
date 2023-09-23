@@ -1,0 +1,39 @@
+#pic-top {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    margin-bottom: 10px;
+    margin-top: 8px;
+}
+
+body {
+    font-family: serif;
+}
+
+h5 {
+    position: absolute;
+    transform: translate(140%, -180px);
+    font-size: xx-large;
+    color: snow;
+}
+
+#home-form {
+    width: 65%;
+    text-align: center;  
+    margin-left: auto;
+    margin-right: auto; 
+    /* 最大の高さを設定する */
+    max-height: 165px;
+    /* 最大の高さを超える場合はスクロールする */
+    overflow-y: auto;
+}
+
+.border-t {
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+.error-msg {
+    color: red;
+}

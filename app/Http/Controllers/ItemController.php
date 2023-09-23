@@ -32,6 +32,21 @@ class ItemController extends Controller
         return view('items.home',compact('user', 'items'));        
     }
 
+    /**
+     * 予約確認
+     */
+    public function confirm(Request $request)
+    {
+        // バリデーション
+        $this->validate($request, [
+            'menu' => 'required',
+            'date' => 'required|date|date_format:Y-m-d',
+            'time' => 'required',
+            'detail' => 'max:500',
+        ]);
+
+        return view('items/confirm');
+    }
 
     /**
      * 予約登録
@@ -68,16 +83,8 @@ class ItemController extends Controller
 
         return redirect('/items/complete?id='.$item->id);
     }     
-    
+        
     /**
-     * 予約確認
-     */
-    // public function show(Request $request)
-    // {
-    //     return view('items.confirm');
-    // }
-
-        /**
      * 予約完了のお知らせ
      */
     public function complete(Request $request)

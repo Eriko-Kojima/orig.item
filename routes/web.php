@@ -31,8 +31,8 @@ Route::get('/create', [App\Http\Controllers\ItemController::class, 'create']);
 Route::group(['middleware' => ['auth', 'can:isUser']], function() {
 
     Route::prefix('items')->group(function () {
-        Route::post('/store', [App\Http\Controllers\ItemController::class, 'store']);
-        // Route::get('/confirm', [App\Http\Controllers\ItemController::class, 'confirm']);
+        Route::post('/confirm', [App\Http\Controllers\ItemController::class, 'confirm']);
+        Route::post('/store', [App\Http\Controllers\ItemController::class, 'store']);    
         Route::get('/complete', [App\Http\Controllers\ItemController::class, 'complete']);
     });
 });
