@@ -66,7 +66,7 @@ class UserController extends Controller
             'name' => 'required|string|max:20',
             'kana' => 'required|string|max:40',
             'phone' => 'required|string|max:11|regex:/^[0-9]+$/',
-            'birthdate' => 'nullable|date|date_format:YYYY-mm-dd',
+            'birthdate' => 'nullable|date|date_format:Y-m-d',
             'email' => [
                 'required',
                 'string',

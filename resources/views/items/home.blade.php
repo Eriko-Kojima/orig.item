@@ -22,6 +22,7 @@
 </div>
 <div id="home-form" class="form-container">
     <table class="table table-bordered">
+        @foreach($items as $item)
         <thead class="table-secondary">
             <tr>
                 <th></th>
@@ -31,15 +32,14 @@
             </tr>
         </thead>
         <tbody>        
-            @foreach($items as $item)
             <tr>
                 <td>ご予約中</td>
                 <td>{{ $item->menu == 0 ? 'ラッシュリフト 90分 7,700円' : ($item->menu == 1 ? 'ラッシュリフト上下 90分 9,900円' : ($item->menu == 2 ? 'まつ毛エクステ120本 90分 5,500円' : 'ハリウッドブロウリフト 90分 5,500円')) }}</td>
                 <td>{{ $item->reservedatetime }}</td>
                 <td>{{ $item->detail }}</td>
             </tr>
-            @endforeach
         </tbody>
+        @endforeach
     </table>
 </div>
 @endauth

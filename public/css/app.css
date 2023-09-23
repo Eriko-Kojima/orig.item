@@ -7,7 +7,7 @@
 }
 
 #pic-top img {
-    width: 80%;
+    width: 70%;
     margin: auto;
 }
 
@@ -17,8 +17,8 @@ body {
 
 h5 {
     position: absolute;
-    transform: translate(140%, -180px);
-    font-size: xx-large;
+    transform: translate(60%, -275px);
+    font-size: 50px;
     color: snow;
 }
 
