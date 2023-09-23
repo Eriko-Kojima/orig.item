@@ -6,6 +6,11 @@
     margin-top: 8px;
 }
 
+#pic-top img {
+    width: 80%;
+    margin: auto;
+}
+
 body {
     font-family: serif;
 }

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->string('phone', 11);
-            $table->date('birthdate');
+            $table->date('birthdate')->nullable();
             $table->integer('role');
             $table->integer('status');        
             $table->timestamps();
