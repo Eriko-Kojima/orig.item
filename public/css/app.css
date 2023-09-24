@@ -42,3 +42,7 @@ h5 {
 .error-msg {
     color: red;
 }
+
+input[type=radio] {
+    accent-color: #88720f;
+}

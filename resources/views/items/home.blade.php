@@ -22,7 +22,6 @@
 </div>
 <div id="home-form" class="form-container">
     <table class="table table-bordered">
-        @foreach($items as $item)
         <thead class="table-secondary">
             <tr>
                 <th></th>
@@ -31,6 +30,7 @@
                 <th>メッセージ</th>
             </tr>
         </thead>
+        @foreach($items as $item)
         <tbody>        
             <tr>
                 <td>ご予約中</td>

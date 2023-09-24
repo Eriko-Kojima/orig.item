@@ -27,6 +27,7 @@ class ItemController extends Controller
         $items = null;
         if(isset($user)) {
             $items = Item::where('user_id', $user->id)->get();
+            $items = Item::orderBy('reservedatetime', 'asc')->get();
         }
         
         return view('items.home',compact('user', 'items'));        
@@ -100,8 +101,8 @@ class ItemController extends Controller
     public function index()
     {
         // 予約一覧取得
-        $items = Item::paginate(5);
-        
+        $items = Item::orderBy('reservedatetime', 'asc')->paginate(5);
+
         return view('admin.index', ['items' => $items]);
     }  
 

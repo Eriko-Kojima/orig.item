@@ -22,44 +22,46 @@
                     </form>
                 </div>    
                 <div class="card-body table-responsive p-0">
-                    <table class="table table-hover text-nowrap">
-                        <thead>
-                            <tr>
-                                <th>会員番号</th>
-                                <th>名前</th>
-                                <th>フリガナ</th>
-                                <th>メールアドレス</th>
-                                <th>電話番号</th>
-                                <th>生年月日</th>
-                                <th>管理者</th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($users as $user)
+                    <div class="table-responsive">
+                        <table class="table table-hover text-nowrap">
+                            <thead>
                                 <tr>
-                                    <td>{{ $user->id }}</td>
-                                    <td>{{ $user->name }}</td>
-                                    <td>{{ $user->kana }}</td>
-                                    <td>{{ $user->email }}</td>
-                                    <td>{{ $user->phone }}</td>
-                                    <td>{{ $user->birthdate }}</td>
-                                    <td>{{ $user->role == 1 ? '管理者' : '一般ユーザー' }}</td>
-                                    <td class="table-text">
-                                        <a class="btn btn-primary btn-sm" href="/admin/member/edit/{{ $user->id }}">編集</a>
-                                    </td>
-
-                                    <td class="table-text">
-                                        <form action="/admin/member/delete/{{ $user->id }}" method="POST">
-                                        @csrf
-                                        <input type="submit" class="btn btn-danger btn-sm" value="削除" onclick='return confirm("この内容を削除してもよろしいでしょうか？")' />
-                                        </form>
-                                    </td>
+                                    <th>会員番号</th>
+                                    <th>名前</th>
+                                    <th>フリガナ</th>
+                                    <th>メールアドレス</th>
+                                    <th>電話番号</th>
+                                    <th>生年月日</th>
+                                    <th>管理者</th>
+                                    <th></th>
+                                    <th></th>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach ($users as $user)
+                                    <tr>
+                                        <td>{{ $user->id }}</td>
+                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $user->kana }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td>{{ $user->phone }}</td>
+                                        <td>{{ $user->birthdate }}</td>
+                                        <td>{{ $user->role == 1 ? '管理者' : '一般ユーザー' }}</td>
+                                        <td class="table-text">
+                                            <a class="btn btn-primary btn-sm" href="/admin/member/edit/{{ $user->id }}">編集</a>
+                                        </td>
+
+                                        <td class="table-text">
+                                            <form action="/admin/member/delete/{{ $user->id }}" method="POST">
+                                            @csrf
+                                            <input type="submit" class="btn btn-danger btn-sm" value="削除" onclick='return confirm("この内容を削除してもよろしいでしょうか？")' />
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 {{-- ページネーション --}}
             </div>
