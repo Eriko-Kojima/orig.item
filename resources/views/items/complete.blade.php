@@ -23,7 +23,7 @@
             </div>
         </table>
         <div class="d-grid gap-2 col-5 mx-auto mb-1">
-            <a href="/" type="button" class="btn btn-light btn-dark">マイページへ</a>
+            <a href="/" type="button" class="btn btn-dark">マイページへ</a>
         </div>
     </div>
 </div>

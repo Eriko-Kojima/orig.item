@@ -19,7 +19,7 @@
                         <dl>        
                             <div class="form-control">
                                 <dt class="text-sm font-medium">メニュー</dt>
-                                <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ request('menu') == 0 ? 'ラッシュリフト 90分 7,700円' : (request('menu') == 1 ? 'ラッシュリフト上下 90分 9,900円' : (request('menu') == 2 ? 'まつ毛エクステ120本 90分 5,500円' : 'ハリウッドブロウリフト 90分 5,500円'))  }}</dd>
+                                <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ request('menu') == 0 ? 'ラッシュリフト 90分 7,700円' : (request('menu') == 1 ? 'ラッシュリフト上下 90分 9,900円' : (request('menu') == 2 ? 'まつ毛エクステ120本 90分 5,500円' : 'ハリウッドブロウリフト 90分 5,500円')) }}</dd>
                             </div>
                             <div class="form-control">
                                 <dt class="text-sm font-medium">予約日</dt>
@@ -27,7 +27,7 @@
                             </div>
                             <div class="form-control">
                                 <dt class="text-sm font-medium">予約時間</dt>
-                                <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ request('time') }}</dd>
+                                <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ request('time') == 1 ? '11:00' : (request('time') == 2 ? '12:30' : (request('time') == 3 ? '14:00' : (request('time') == 4 ? '15:30' : (request('time') == 5 ? '17:00' : '18:30')))) }}</dd>
                             </div>
                             <div class="form-control">
                                 <dt class="text-sm font-medium">メッセージ</dt>
@@ -36,15 +36,16 @@
                         </dl>
                     </div>
                 </div>
+
                 <div class="row justify-content-center">
+                    <div class="d-grid gap-2 col-2 mx-auto mb-1">
+                        <a href="/items/create" type="button" class="btn btn-secondary" type="submit">修正する</a>
+                    </div>
                     <div class="d-grid gap-2 col-3 mx-auto mb-1">
                         <button class="btn btn-dark" type="submit">この内容で予約する</button>
                     </div>
-            </form>
-                <div class="d-grid gap-2 col-2 mx-auto mb-1">
-                    <a href="/items/create"><button class="btn btn-secondary" type="submit">修正する</button></a>
                 </div>
-                </div>
+            </form>                
         </table>
     </div>
 </div>

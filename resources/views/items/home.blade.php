@@ -1,19 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
-@can ('isAdministrator')
-<div class="d-grid gap-2 col-5 mx-auto mb-1">
-    <a href="/admin/index" type="button" class="btn btn-danger">管理画面へ</a>
+
+<div class="home-form">
+    <div class="row justify-content-center">
+        @can ('isAdministrator')
+        <div class="d-grid gap-2 col-3 mx-auto mb-1">
+            <a href="/admin/index" type="button" class="btn btn-secondary">管理画面へ</a>
+        </div>
+        @endcan
+
+        <div class="d-grid gap-2 col-3 mx-auto mb-1">
+            <a href="/items/create" type="button" class="btn btn-light btn-dark">予約する</a>
+        </div>
+    </div>
 </div>
-@endcan
 
 <div id="pic-top">
     <img src="{{ asset('img/salon_screen_cut.jpg') }}" alt="">
         <h5>くつろげる上質空間</h5>
-</div>
-
-<div class="d-grid gap-2 col-5 mx-auto mb-1">
-    <a href="/items/create" type="button" class="btn btn-light btn-dark">予約する</a>
 </div>
 
 @auth 
@@ -21,6 +26,7 @@
     <h2 class="text-center">ようこそ、{{ $user->name }} 様</h2>
 </div>
 <div id="home-form" class="form-container">
+    @if (!($items->isEmpty()))
     <table class="table table-bordered">
         <thead class="table-secondary">
             <tr>
@@ -41,6 +47,7 @@
         </tbody>
         @endforeach
     </table>
+    @endif
 </div>
 @endauth
 

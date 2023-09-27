@@ -2,7 +2,7 @@
     width: 100%;
     text-align: center;
     position: relative;
-    margin-bottom: 10px;
+    margin-bottom: 25px;
     margin-top: 8px;
 }
 
@@ -15,10 +15,14 @@ body {
     font-family: serif;
 }
 
+h2 {
+    font-size: 38px;
+}
+
 h5 {
     position: absolute;
-    transform: translate(60%, -275px);
-    font-size: 50px;
+    transform: translate(48%, -275px);
+    font-size: 58px;
     color: snow;
 }
 
@@ -44,5 +48,72 @@ h5 {
 }
 
 input[type=radio] {
-    accent-color: #88720f;
+    accent-color: #78456f;
 }
+
+.home-form .btn {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.home-form .btn-secondary {
+    background-color: rgb(169, 76, 135);
+}
+
+.home-form .btn-dark {
+    background-color: rgb(107, 107, 107);
+}
+
+#create-form .btn {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#create-form .btn-dark {
+    background-color: rgb(118, 80, 122);
+}
+
+#create-form .btn.btn-danger {
+    background-color: rgb(60, 60, 61);
+    color: beige;
+}
+
+#confirm-form .btn {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#confirm-form .btn-dark {
+    background-color: rgb(118, 80, 122);
+}
+
+#confirm-form .btn-secondary {
+    background-color: rgb(60, 60, 61);
+    color: beige;
+}
+
+#complete-form .btn-dark {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(118, 80, 122);
+} 

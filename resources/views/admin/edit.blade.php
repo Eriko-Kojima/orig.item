@@ -36,26 +36,26 @@
                 </div>
                 <div class="form-group">
                     <label for="reservedatetime">予約日時</label><br>
-                    <li><label for="date">予約日（必須）</label><br>
-                        <span>※本日から１年後まで予約可能です</span>
+                    <li><label for="date">予約日（必須）</label>
+                        <p>※本日から１年後まで予約可能です</p>
                         <input type="date" class="form-control" id="date" name="date" value="{{ old('date', $item->date) }}" min="{{ now()->format('Y-m-d')}}" max="{{ now()->addYear(1)->format('Y-m-d') }}" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" />
                     </li><br>
-                    <li><label for="time">予約時間（必須）</label><br><span>※予約可能時間(11:00、12:30、14:00、15:30、17:00、18:30)</span></th>
-                        <select name="time" id="time" class="form-control">
+                    <li><label for="time">予約時間（必須）</label>
+                        <p>※予約可能時間(11:00、12:30、14:00、15:30、17:00、18:30)</p>
+                        <select name="time" class="form-control" id="time">
                             <option value="">予約時間をお選びください</option>
-                            <option value="11:00">11:00</option>
-                            <option value="12:30">12:30</option>
-                            <option value="14:00">14:00</option>
-                            <option value="15:30">15:30</option>
-                            <option value="17:00">17:00</option>
-                            <option value="18:30">18:30</option>
+                            <option value="11:00:00" @if(old('time', $item->time)=='11:00:00') selected  @endif>11:00</option>
+                            <option value="12:30:00" @if(old('time', $item->time)=='12:30:00') selected  @endif>12:30</option>
+                            <option value="14:00:00" @if(old('time', $item->time)=='14:00:00') selected  @endif>14:00</option>
+                            <option value="15:30:00" @if(old('time', $item->time)=='15:30:00') selected  @endif>15:30</option>
+                            <option value="17:00:00" @if(old('time', $item->time)=='17:00:00') selected  @endif>17:00</option>
+                            <option value="18:30:00" @if(old('time', $item->time)=='18:30:00') selected  @endif>18:30</option>
                         </select>
                     </li>
                 </div>
                 <div class="form-group">
                     <label for="detail">メッセージ</label>
-                    <input type="text" class="form-control" id="detail" name="detail"
-                        value="{{ old('detail', $item->detail) }}" />
+                    <input type="text" class="form-control" id="detail" name="detail" value="{{ old('detail', $item->detail) }}" />
                 </div>
             </div>
             <div class="card-footer">

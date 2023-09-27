@@ -26,11 +26,16 @@ class ItemController extends Controller
         $user = Auth::user();
         $items = null;
         if(isset($user)) {
-            $items = Item::where('user_id', $user->id)->get();
-            $items = Item::orderBy('reservedatetime', 'asc')->get();
+            $items = Item::where('user_id', $user->id)->
+            orderBy('reservedatetime', 'asc')->get();
         }
         
         return view('items.home',compact('user', 'items'));        
+    }
+
+    public function create(Request $request)
+    {
+        return view('items.create');
     }
 
     /**
@@ -39,35 +44,34 @@ class ItemController extends Controller
     public function confirm(Request $request)
     {
         // バリデーション
-        $this->validate($request, [
+        $request->validate([
             'menu' => 'required',
             'date' => 'required|date|date_format:Y-m-d',
             'time' => 'required',
             'detail' => 'max:500',
         ]);
 
-        return view('items/confirm');
-    }
+        $test=Item::where('reservedatetime', '=',
+        $request->date .' '.$request->time)->count();   
+            if($test>0){
+                return back()  
+                ->withInput() 
+                ->withErrors(['error'=>'すでに予約があるため、他の日時をお選びくださいませ']);
+        }
 
-    /**
-     * 予約登録
-     */
-    public function create(Request $request)
-    {
-        return view('items.create');
+        return view('items.confirm');
     }
 
     public function store(Request $request)
     {
         // バリデーション
-        $this->validate($request, [
+        $request->validate([
             'menu' => 'required',
             'date' => 'required|date|date_format:Y-m-d',
             'time' => 'required',
             'detail' => 'max:500',
         ]);
 
-        // 予約登録
         $item = Item::create([
             'user_id' => Auth::user()->id,
             'menu' => $request->menu,
@@ -83,7 +87,8 @@ class ItemController extends Controller
         Mail::send(new SampleMail($name, $email, $id, $menu, $reservedatetime, $detail));
 
         return redirect('/items/complete?id='.$item->id);
-    }     
+    }
+    
         
     /**
      * 予約完了のお知らせ
@@ -92,7 +97,6 @@ class ItemController extends Controller
     {
         return view('items.complete', ['id'=>$request->id]);
     }
-
 
     /**
      * 管理画面
@@ -103,7 +107,7 @@ class ItemController extends Controller
         // 予約一覧取得
         $items = Item::orderBy('reservedatetime', 'asc')->paginate(5);
 
-        return view('admin.index', ['items' => $items]);
+        return view('/admin/index', ['items' => $items]);
     }  
 
     /**
@@ -114,7 +118,7 @@ class ItemController extends Controller
         // POSTリクエストのとき
         if ($request->isMethod('post')) {
             // バリデーション
-            $this->validate($request, [
+            $request->validate([
                 'user_id' => 'required',
                 'menu' => 'required',
                 'date' => 'required|date|date_format:Y-m-d',
@@ -133,7 +137,7 @@ class ItemController extends Controller
             return redirect('/admin/index');
         }
 
-        return view('admin.add');
+        return view('/admin/add');
     }
 
     /**
@@ -149,11 +153,7 @@ class ItemController extends Controller
         $item->date = $tmp[0];
         $item->time = $tmp[1];
 
-        //実現のために必要なこと⇒関数を利用する
-        //①検索の関数 ⇒ スペースを見つけ出して、それを基準に切り取る
-        //②文字を切り取る関数⇒文字を日付部分と時間部分に分ける
-        
-        return view('admin.edit', [
+        return view('/admin/edit', [
             'item' => $item
         ]);
     }
@@ -163,7 +163,7 @@ class ItemController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
+        $request->validate([
             'user_id' => 'required',
             'menu' => 'required',
             'date' => 'required|date|date_format:Y-m-d',
