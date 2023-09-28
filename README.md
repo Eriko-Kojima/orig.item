@@ -1,43 +1,42 @@
-## 商品管理システム
+# 予約管理システム
 
-### 環境構築手順
+## 概要
+このシステムではネット予約を管理することができます。予約の登録と編集削除、顧客の検索と編集削除ができます。
 
-* Gitクローン
-* .env.example をコピーして .env を作成
-* MySQLのデータベース作成（名前：item_management）
-* Macの場合 .env の DB_PASSWORD を root に修正（Windowsは修正不要）
+会員登録済みのユーザーがログイン状態でのみ予約可能で、予約確定後に確認メールを配信します。
 
-    ```INI
-    DB_PASSWORD=root
-    ```
+## 主な機能
+- ログイン・ログアウト機能
+- 予約一覧画面
+- 予約新規登録、編集、削除機能
+- 顧客一覧画面
+- 顧客検索、編集、削除機能
+- 予約する機能
+- 予約確認画面
+- 予約確認メール配信機能
 
-* APP_KEY生成
+## 開発環境
+```
+PHP 8.1
+MySQL 8.0.32
+Laravel 10.10
+```
 
-    ```console
-    php artisan key:generate
-    ```
+## 設計書
+[設計書ページへ]
+(https://github.com/Eriko-Kojima/orig.item)
 
-* Composerインストール
+## システム閲覧
+[アプリケーションページへ]
+(https://orig-item-10312d9b7485.herokuapp.com/)
 
-    ```console
-    composer install
-    ```
+### テストアカウント情報
+```
+[管理者アカウント]
+メールアドレス : huilizix30@gmail.com			
+パスワード : huil30ix			
 
-* フロント環境構築
-
-    ```console
-    npm ci
-    npm run build
-    ```
-
-* マイグレーション
-
-    ```console
-    php artisan migrate
-    ```
-
-* 起動
-
-    ```console
-    php artisan serve
-    ```
+[テストアカウント]
+メールアドレス : minami@techis.jp
+パスワード : minamimi	
+```		
