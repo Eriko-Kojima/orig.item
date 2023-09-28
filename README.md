@@ -24,7 +24,7 @@ Laravel 10.10
 
 ## 設計書
 [設計書ページへ]
-(https://github.com/Eriko-Kojima/orig.item)
+(https://drive.google.com/drive/u/0/folders/1jkPb2Z56_9GH5oAiD8_CeKLxh3htPf4y)
 
 ## システム閲覧
 [アプリケーションページへ]
@@ -32,11 +32,6 @@ Laravel 10.10
 
 ### テストアカウント情報
 ```
-[管理者アカウント]
-メールアドレス : huilizix30@gmail.com			
-パスワード : huil30ix			
-
-[テストアカウント]
 メールアドレス : minami@techis.jp
 パスワード : minamimi	
 ```		
