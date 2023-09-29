@@ -126,6 +126,14 @@ class ItemController extends Controller
                 'detail' => 'max:500',
             ]);
 
+            $test=Item::where('reservedatetime', '=',
+            $request->date .' '.$request->time)->count();   
+                if($test>0){
+                    return back()  
+                    ->withInput() 
+                    ->withErrors(['error'=>'すでに予約があるため、他の日時をお選びくださいませ']);
+            }
+
             // 予約登録
             Item::create([
                 'user_id' => $request->user_id,
@@ -169,6 +177,14 @@ class ItemController extends Controller
             'date' => 'required|date|date_format:Y-m-d',
             'time' => 'required',
         ]);
+
+        $test=Item::where('reservedatetime', '=',
+        $request->date .' '.$request->time)->count();   
+            if($test>0){
+                return back()  
+                ->withInput() 
+                ->withErrors(['error'=>'すでに予約があるため、他の日時をお選びくださいませ']);
+        }
 
         Item::where('id',$request->id)->update([
             'user_id' => $request->user_id,

@@ -23,6 +23,7 @@
                 <form method="POST">
                     @csrf
                     <div class="card-body">
+                    <p class="error-msg">{{ $errors->first('error') }}</p>
                         <div class="form-group">
                             <label for="user_id">会員番号</label>
                             <input type="number" class="form-control" id="user_id" name="user_id" min="1" max="1000" placeholder="会員番号" />

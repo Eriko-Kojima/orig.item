@@ -27,7 +27,7 @@
                             </div>
                             <div class="form-control">
                                 <dt class="text-sm font-medium">予約時間</dt>
-                                <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ request('time') == 1 ? '11:00' : (request('time') == 2 ? '12:30' : (request('time') == 3 ? '14:00' : (request('time') == 4 ? '15:30' : (request('time') == 5 ? '17:00' : '18:30')))) }}</dd>
+                                <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ request('time') }}</dd>
                             </div>
                             <div class="form-control">
                                 <dt class="text-sm font-medium">メッセージ</dt>
