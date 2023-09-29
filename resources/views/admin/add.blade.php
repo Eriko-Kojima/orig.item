@@ -26,7 +26,7 @@
                     <p class="error-msg">{{ $errors->first('error') }}</p>
                         <div class="form-group">
                             <label for="user_id">会員番号</label>
-                            <input type="number" class="form-control" id="user_id" name="user_id" min="1" max="1000" placeholder="会員番号" />
+                            <input type="number" class="form-control" id="user_id" name="user_id" value="{{ old('user_id') }}" min="1" max="1000" placeholder="会員番号" />
                         </div>
 
                         <div class="form-group">
@@ -59,7 +59,7 @@
 
                         <div class="form-group">
                             <label for="detail">メッセージ</label>
-                            <input type="text" class="form-control" id="detail" name="detail" max="500" placeholder="メッセージ" />
+                            <input type="text" class="form-control" id="detail" name="detail" class="detail_textarea" max="500" value="{{ old('detail') }}" placeholder="メッセージ" />
                         </div>
                     </div>
 
